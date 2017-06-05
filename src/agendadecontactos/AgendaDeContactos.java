@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package agendadecontactos;
-
+import agendadecontactos.*;
+import java.awt.SplashScreen;
 /**
  *
  * @author USER
@@ -15,7 +16,11 @@ public class AgendaDeContactos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        SlashScreen m = new SlashScreen();
+        m.setSize(820, 284);
+        m.setLocationRelativeTo(null);
+        m.setVisible(true);
+        
     }
     
 }
