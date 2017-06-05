@@ -64,10 +64,10 @@ public class SlashScreen extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
@@ -82,7 +82,12 @@ public class SlashScreen extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/notepad.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 289, 289);
+        jLabel1.setBounds(0, 0, 290, 270);
+
+        jProgressBar1.setForeground(new java.awt.Color(60, 63, 65));
+        jProgressBar1.setFocusable(false);
+        jPanel1.add(jProgressBar1);
+        jProgressBar1.setBounds(-4, 272, 850, 10);
 
         jLabel3.setFont(new java.awt.Font("Consolas", 1, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,10 +106,6 @@ public class SlashScreen extends javax.swing.JFrame {
         jLabel5.setText("José de Jesús Miramontes Gómez");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(320, 130, 330, 24);
-
-        jProgressBar1.setForeground(new java.awt.Color(60, 63, 65));
-        jPanel1.add(jProgressBar1);
-        jProgressBar1.setBounds(-4, 272, 850, 10);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 850, 284);
