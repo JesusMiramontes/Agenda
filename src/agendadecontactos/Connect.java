@@ -7,6 +7,7 @@ package agendadecontactos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -52,6 +53,37 @@ public class Connect
         {
             sqlExcept.printStackTrace();
         }
+    }
+    
+    
+    public static void removeContacto(int id)// throws SQLException
+    {
+        String deleteSQL = "DELETE FROM listacontactos WHERE ID = ?";
+        PreparedStatement preparedStatement = null;
+        
+		try {
+                        createConnection();
+			preparedStatement = conn.prepareStatement(deleteSQL);
+			preparedStatement.setInt(1, 1);
+
+			// execute delete SQL stetement
+			preparedStatement.executeUpdate();
+
+			System.out.println("Record is deleted!");
+                        
+                        if (preparedStatement != null) {
+				preparedStatement.close();
+			}
+
+			if (conn != null) {
+				conn.close();
+			}
+
+		} catch (SQLException e) {
+
+			System.out.println(e.getMessage());
+
+		}
     }
     
     
