@@ -46,9 +46,10 @@ public class Connect {
     }
 
     public static void updateContacto(int id, String nombre, String telefono, String correo) {
-        String updateTableSQL = "UPDATE " + tableName + " SET nombre = ?, telefono = ?, correo = ? WHERE USER_ID = ?";
+        String updateTableSQL = "UPDATE " + tableName + " SET nombre = ?, telefono = ?, correo = ? WHERE id = ?";
         PreparedStatement preparedStatement = null;
         try {
+            createConnection();
             preparedStatement = conn.prepareStatement(updateTableSQL);
             preparedStatement.setString(1, nombre);
             preparedStatement.setString(2, telefono);
