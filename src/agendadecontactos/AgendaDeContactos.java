@@ -6,12 +6,12 @@
 package agendadecontactos;
 
 import static agendadecontactos.Connect.createConnection;
-import static agendadecontactos.Connect.insertRestaurants;
 import static agendadecontactos.Connect.selectRestaurants;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import static agendadecontactos.Connect.insertContacto;
 
 /**
  *
@@ -35,9 +35,11 @@ public class AgendaDeContactos {
 //        m.setLocationRelativeTo(null);
 //        m.setVisible(true);
         
-        createConnection();
-        //insertRestaurants(1, "LaVals", "Berkeley");
-        selectRestaurants();
+        //createConnection();
+        //insertContacto(0, "Jesus", "87188", "jesus@correo.com");
+        //selectRestaurants();
+        GUI g = new GUI();
+        g.setVisible(true);
     }
     
 //    public static void createConnection()
