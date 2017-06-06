@@ -5,6 +5,8 @@
  */
 package agendadecontactos;
 
+import javax.swing.event.ListSelectionEvent;
+
 /**
  *
  * @author USER
@@ -55,6 +57,11 @@ public class GUI extends javax.swing.JFrame {
                 "id", "nombre", "telefono", "correo"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(1).setResizable(false);
@@ -233,6 +240,23 @@ public class GUI extends javax.swing.JFrame {
         Connect.updateContacto(Integer.parseInt(iId.getText()), iNombre.getText(), iTelefono.getText(), iCorreo.getText());
     }//GEN-LAST:event_btnUpdateActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+       if (jTable1.getSelectedRow() > -1){
+           String idd = (String)jTable1.getValueAt(jTable1.getSelectedRow(), 0);
+           int id = Integer.parseInt(idd);
+           String nombre = (String)jTable1.getValueAt(jTable1.getSelectedRow(), 1);
+           String telefono = (String)jTable1.getValueAt(jTable1.getSelectedRow(), 2);
+           String correo = (String)jTable1.getValueAt(jTable1.getSelectedRow(), 3);
+           
+           nombre=telefono=correo="";
+           //jTable1.getValueAt(row, column)
+           iId.setText(idd.toString());
+           iNombre.setText(nombre);
+           iTelefono.setText(telefono);
+           iCorreo.setText(correo);
+       }
+    }//GEN-LAST:event_jTable1MouseClicked
+    
     /**
      * @param args the command line arguments
      */
