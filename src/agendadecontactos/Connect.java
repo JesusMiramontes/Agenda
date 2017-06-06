@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Connect {
 
-    public static String dbURL = "jdbc:derby://localhost:1527/contactos;create=true;user=root;password=root;";
+    public static String dbURL = "jdbc:derby://localhost:1527/contactos;create=true;user=APP;password=APP;";
     public static String tableName = "listacontactos";
     // jdbc Connection
     public static Connection conn = null;
@@ -26,6 +26,7 @@ public class Connect {
 
     public static void createConnection() {
         try {
+            //stmt.executeUpdate("SET SCHEMA APP");
             Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
             //Get a connection
             conn = DriverManager.getConnection(dbURL);
