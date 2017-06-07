@@ -74,7 +74,7 @@ public class Connect {
 
     public static void removeContacto(int id)// throws SQLException
     {
-        String deleteSQL = "DELETE FROM listacontactos WHERE ID = ?";
+        String deleteSQL = "DELETE FROM APP.listacontactos WHERE ID = ?";
         PreparedStatement preparedStatement = null;
 
         try {
@@ -143,6 +143,38 @@ public class Connect {
         } catch (SQLException sqlExcept) {
             sqlExcept.printStackTrace();
         }
+    }
+    
+    public static Vector selectRestaurants(int id) {
+        Vector v = new Vector();
+        boolean flag = false;
+        try {
+            createConnection();
+            stmt = conn.createStatement();
+            ResultSet results = stmt.executeQuery("select * from " + tableName + " where id = " + id);
+            ResultSetMetaData rsmd = results.getMetaData();
+            int numberCols = rsmd.getColumnCount();
+            
+
+            while(results.next())
+            {
+                flag = true;
+                v.add(results.getString(1));
+                v.add(results.getString(2));
+                v.add(results.getString(3));
+                v.add(results.getString(4));
+            }
+            //s = (String) results.getString("nombre");
+            
+            results.close();
+            stmt.close();
+        } catch (SQLException sqlExcept) {
+            sqlExcept.printStackTrace();
+        }
+        //shutdown();
+        if (!flag)
+            v.add("empty");
+        return v;
     }
 
     public static void shutdown() {
