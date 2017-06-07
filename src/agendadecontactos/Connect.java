@@ -47,7 +47,7 @@ public class Connect {
     }
 
     public static void updateContacto(int id, String nombre, String telefono, String correo) {
-        String updateTableSQL = "UPDATE " + tableName + " SET nombre = ?, telefono = ?, correo = ? WHERE id = ?";
+        String updateTableSQL = "UPDATE " + tableName + " SET nombre = ?, telefono = ?, correo = ? WHERE id_contacto = ?";
         PreparedStatement preparedStatement = null;
         try {
             createConnection();
@@ -74,14 +74,15 @@ public class Connect {
 
     public static void removeContacto(int id)// throws SQLException
     {
-        String deleteSQL = "DELETE FROM APP.listacontactos WHERE ID = ?";
+        String deleteSQL = "DELETE FROM APP.listacontactos WHERE id_contacto = ?";
         PreparedStatement preparedStatement = null;
 
         try {
             createConnection();
             preparedStatement = conn.prepareStatement(deleteSQL);
-            preparedStatement.setInt(1, 1);
+            preparedStatement.setInt(1, id);
 
+            System.out.println(preparedStatement);
             // execute delete SQL stetement
             preparedStatement.executeUpdate();
 
@@ -151,7 +152,7 @@ public class Connect {
         try {
             createConnection();
             stmt = conn.createStatement();
-            ResultSet results = stmt.executeQuery("select * from " + tableName + " where id = " + id);
+            ResultSet results = stmt.executeQuery("select * from " + tableName + " where id_contacto = " + id);
             ResultSetMetaData rsmd = results.getMetaData();
             int numberCols = rsmd.getColumnCount();
             
