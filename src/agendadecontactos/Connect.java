@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package agendadecontactos;
 
 import java.sql.Connection;
@@ -30,8 +25,7 @@ public class Connect {
             Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
             //Get a connection
             conn = DriverManager.getConnection(dbURL);
-        } catch (Exception except) {
-            except.printStackTrace();
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException except) {
         }
     }
 
@@ -83,6 +77,7 @@ public class Connect {
             preparedStatement.setInt(1, id);
 
             System.out.println(preparedStatement);
+            
             // execute delete SQL stetement
             preparedStatement.executeUpdate();
 
@@ -110,7 +105,6 @@ public class Connect {
             stmt = conn.createStatement();
             ResultSet results = stmt.executeQuery("select * from " + tableName);
             ResultSetMetaData rsmd = results.getMetaData();
-            int numberCols = rsmd.getColumnCount();
 
             //To remove previously added rows
             while (table.getRowCount() > 0) {
@@ -165,7 +159,6 @@ public class Connect {
                 v.add(results.getString(3));
                 v.add(results.getString(4));
             }
-            //s = (String) results.getString("nombre");
             
             results.close();
             stmt.close();
