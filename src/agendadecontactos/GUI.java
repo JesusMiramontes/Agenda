@@ -1,12 +1,19 @@
-/**
- * INSTITUTO NACIONAL DE MÉXICO
- * INSTITUTO TECNOLÓGICO DE LA LAGUNA
- * TÓPICOS AVANZADOS DE PROGRAMACIÓN
- * ENE-AGO 2017
- * PROFESOR: ING. LUIS FERNANDO GIL VAZQUEZ
- * ALUMNO: JOSÉ DE JESÚS MIRAMONTES GÓMEZ
- * MATRICULA: 15131349
- */
+//------------------------------------------------------------------------------------------
+// INSTITUTO TECNOLOGICO DE LA LAGUNA
+// INGENIERIA EN SISTEMAS COMPUTACIONALES
+// TOPICOS AVANZADOS DE PROGRAMACION "B"
+// SEMESTRE: ENE-JUN/2017 HORA: 17-18 HRS
+//
+// Clase que gestiona los registros en la base de datos
+//
+// Archivo : Connect.java
+// Autor : JOSÉ DE JESÚS MIRAMONTES GÓMEZ 15131349
+// Fecha : 06/JUN/2017
+// Compilador : JAVA J2SE v1.8.0
+// Descripción : Esta clase gestiona la conexión a la base de datos.
+//               Se encarga de insertar, seleccionar, eliminar y actualizar
+//               registros en la base de datos
+//------------------------------------------------------------------------------------------
 package agendadecontactos;
 
 import java.util.Vector;
